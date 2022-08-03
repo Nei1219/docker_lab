@@ -1,0 +1,10 @@
+FROM ubuntu:21.04
+ARG VERSION=2.8.1
+RUN apt-get update && \
+    apt-get install -y wget && \
+    wget https://github.com/ipinfo/cli/releases/download/ipinfo-${VERSION}/ipinfo_${VERSION}_linux_amd64.tar.gz && \
+    mkdir /usr/bin/ipinfo && \
+    ls /usr/bin/ipinfo && \
+    tar zxf ipinfo_${VERSION}_linux_amd64.tar.gz /usr/bin/ipinfo && \
+    ls /usr/bin/ipinfo && \
+    rm -rf ipinfo_${VERSION}_linux_amd64.tar.gz
