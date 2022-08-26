@@ -11,10 +11,10 @@ services:
       - cache:/data
   api:
     container_name: quotes-api_prod
-    build:
-      context: ./node-api
-      dockerfile: Dockerfile
-    image: quotes-api
+    # build:
+    #   context: ./node-api
+    #   dockerfile: Dockerfile
+    image: neineihello/portainer-api
     depends_on:
       - redis
     ports:
