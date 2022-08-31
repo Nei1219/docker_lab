@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  redis_1:
+  redis:
     container_name: redis_1
     image: redis:6.2-alpine
     restart: always
@@ -10,7 +10,7 @@ services:
     volumes: 
       - cache:/data
   api:
-    container_name: quotes-api_prod
+    container_name: quotes-api_test
     # build:
     #   context: ./node-api
     #   dockerfile: Dockerfile
