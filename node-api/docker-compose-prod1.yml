@@ -5,7 +5,7 @@ services:
     image: redis:6.2-alpine
     restart: always
     ports:
-      - '6378:6378'
+      - '6378:6379'
     command: redis-server --save 20 1 --loglevel warning --requirepass 456
     volumes: 
       - cache:/data
@@ -21,8 +21,8 @@ services:
       - 3002:3000
     environment:
       NODE_ENV: production
-      REDIS_HOST: redis_1
-      REDIS_PORT: 6378
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
       REDIS_PASSWORD: 456
 volumes:
   cache: 
