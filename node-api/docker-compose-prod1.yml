@@ -14,7 +14,7 @@ services:
     # build:
     #   context: ./node-api
     #   dockerfile: Dockerfile
-    image: neineihello/api
+    image: neineihello/api-1
     depends_on:
       - redis
     ports:
