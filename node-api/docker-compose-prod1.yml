@@ -18,7 +18,7 @@ services:
     depends_on:
       - redis_1
     ports:
-      - 3001:3000
+      - 3002:3000
     environment:
       NODE_ENV: production
       REDIS_HOST: redis_1
