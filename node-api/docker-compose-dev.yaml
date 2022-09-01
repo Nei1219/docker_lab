@@ -12,9 +12,9 @@ services:
   api:
     container_name: quotes-api
     build:
-      context: ./node-api
+      context: ./api
       dockerfile: Dockerfile
-    image: neineihello/api-dev-image
+    image: neineihello/api
     depends_on:
       - redis
     ports:
@@ -26,7 +26,7 @@ services:
       REDIS_PASSWORD: 123
     command: npm run dev
     volumes: 
-      - ./node-api:/app
+      - ./api:/app
 
 volumes:
   cache:
