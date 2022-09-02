@@ -21,7 +21,7 @@ router.get("/users", (req, res) => {
     try {
         axios.get(`${USERS_API}`).then(function (response) {
             const users = response.data
-            console.log("Users retrieved from the API-----test")
+            console.log("Users retrieved from the API")
             res.status(200).send(users)
         })
     } catch (err) {
