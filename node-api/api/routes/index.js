@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
     res.json({ messages: "hit / , users ,cached-users" })
 })
 router.get("/users", (req, res) => {
-    const a = 'update@4'
+    const a = 'update@5'
     console.log(a)
     try {
         axios.get(`${USERS_API}`).then(function (response) {
