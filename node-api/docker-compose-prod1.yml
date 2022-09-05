@@ -10,7 +10,7 @@ services:
 
   api:
     container_name: api
-    image: neineihello/api
+    image: neineihello/api_1
     depends_on:
       - redis
     ports:
