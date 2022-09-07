@@ -10,11 +10,11 @@ services:
     volumes: 
       - cache:/data
   api:
-    container_name: quotes-api
+    container_name: api
     build:
       context: ./api
       dockerfile: Dockerfile
-    image: neineihello/api-2
+    image: neineihello/api:v1
     depends_on:
       - redis
     ports:

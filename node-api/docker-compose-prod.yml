@@ -10,7 +10,7 @@ services:
 
   api:
     container_name: api_prod
-    image: neineihello/v1
+    image: neineihello/api:v1
     depends_on:
       - redis
     ports:
