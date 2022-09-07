@@ -11,17 +11,17 @@ const redis = new Redis({
     password: REDIS_PASSWORD,
     db: 0, // Defaults to 0
 })
-const USERS_API = "https://jsonplaceholder.typicode.com/users/"
+const USERS_API = "https://jsonplaceholder.typicode.com/comments/"
 router.get("/", (req, res) => {
-    res.json({ messages: "hit / , users ,cached-users" })
+    res.json({ messages: "hit / , comments ,cached-comments" })
 })
-router.get("/users", (req, res) => {
+router.get("/comments", (req, res) => {
     const a = 'update@6'
     console.log(a)
     try {
         axios.get(`${USERS_API}`).then(function (response) {
             const users = response.data
-            console.log("Users retrieved from the API")
+            console.log("comments retrieved from the API")
             res.status(200).send(users)
         })
     } catch (err) {
@@ -29,7 +29,7 @@ router.get("/users", (req, res) => {
     }
 })
 
-router.get("/cached-users", async (req, res) => {
+router.get("/cached-comments", async (req, res) => {
     const f = 'modify 2'
     console.log(f)
     try {
@@ -41,7 +41,7 @@ router.get("/cached-users", async (req, res) => {
             }
 
             if (data) {
-                console.log("Users retrieved from Redis=================")
+                console.log("comments retrieved from Redis=================")
                 res.status(200).send(JSON.parse(data))
             } else {
                 const result = await axios.get(`${USERS_API}`)
@@ -54,7 +54,7 @@ router.get("/cached-users", async (req, res) => {
                     .catch((err) => {
                         console.log(err)
                     })
-                console.log("Users retrieved from the API")
+                console.log("comments retrieved from the API")
                 res.status(200).send({ users })
             }
         })
@@ -62,7 +62,7 @@ router.get("/cached-users", async (req, res) => {
         res.status(500).send({ error: err.message })
     }
 })
-router.get("/delete-users", async (req, res) => {
+router.get("/delete-comments", async (req, res) => {
     try {
         console.log("delete")
         await redis
